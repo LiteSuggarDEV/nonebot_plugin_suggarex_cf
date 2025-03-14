@@ -8,7 +8,7 @@ CloudFlare Workers AI Proctol Adapter for SuggarChat
 ## 安装
 
 ```bash
-pip install nonebot_plugin_suggaradapter_cf
+pip install nonebot-plugin-suggaradapter-cf
 ```
 
 ## 配置文件
