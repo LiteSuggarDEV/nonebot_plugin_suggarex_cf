@@ -1,14 +1,14 @@
-# nonebot_plugin_suggaradapter_cf
+# nonebot_plugin_suggarex_cf
 CloudFlare Workers AI Proctol Adapter for SuggarChat
 
-## 适用于SuggarChat的CloudFlare Workers AI Proctol适配器
+## 适用于SuggarChat插件的CloudFlare协议适配器实现
 
 [SuggarChat](https://github.com/JohnRichard4096/nonebot_plugin_suggarchat)
 
 ## 安装
 
 ```bash
-pip install nonebot-plugin-suggaradapter-cf
+pip install nonebot-plugin-suggarex-cf
 ```
 
 ## 配置文件

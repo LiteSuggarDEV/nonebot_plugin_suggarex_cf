@@ -1,7 +1,7 @@
 [project]
-name = "nonebot_plugin_suggaradapter_cf"
-version = "0.1"
-description = "CloudFlare procotol adapter for SuggaarChat"
+name = "nonebot_plugin_suggarex_cf"
+version = "0.1.1"
+description = "适用于SuggarChat插件的CloudFlare协议适配器实现，SuggarChat附属插件"
 authors = [{ name = "JohnRichard4096", email = "windowserror@163.com" }]
 dependencies = [
     "nonebot2>=2.2.0",
