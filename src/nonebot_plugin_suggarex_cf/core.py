@@ -42,5 +42,5 @@ async def init():
     ada = Adapter()
 
     config.reg_config("cf_user_id")
-    config.reg_model_config("cf_model_id")
+    config.reg_model_config("cf_user_id")
     ada.register_adapter(adapter, "cf")
