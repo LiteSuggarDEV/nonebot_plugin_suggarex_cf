@@ -14,13 +14,20 @@ async def adapter(
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
         "Authorization": f"Bearer {key}",
     }
+    if model.startswith("@"):
+        model = model.replace("@", "")
+    if key == "":
+        raise ValueError("请配置Cloudflare API Key")
+
     async with ClientSession(
         headers=headers,
-        base_url=f"https://api.cloudflare.com/client/v4/accounts/{user_id}/ai/run/{model}",
         timeout=aiohttp.ClientTimeout(total=25),
     ) as session:
         try:
-            response = await session.post(json=messages)
+            response = await session.post(
+                url=f"https://api.cloudflare.com/client/v4/accounts/{user_id}/ai/run/@{model}",
+                json=messages,
+            )
             if response.status != 200:
                 logger.error(f"请求失败！user{user_id}/模型 {model}")
                 raise Exception(f"{response.status}\n{response.text}")

@@ -22,7 +22,7 @@ CloudFlare Workers AI Proctol Adapter for SuggarChat
     ```
 
 ## 配置文件
-额外添加了 `cf_user_id` 配置项，用于标识 CloudFlare Worker 的用户，默认为 null
+额外添加了 `cf_user_id` 配置项，用于标识 CloudFlare Worker 的用户，默认为 null，请在WorkersAI主页找到你的用户ID并填写！
 
 ## 使用
-将协议更改为 `cf` 将可以通过提供的token 访问 CloudFlare Workers AI 接口,具体配置请参考Suggar的配置文件说明。
+将协议(`protocol`字段的值)更改为 `cf` 将可以通过提供的token 访问 CloudFlare Workers AI 接口,模型请填写CloudFlare Workers AI的**文本生成模型**,并不*需要使用* **@** *拼接*,例如`"model":"llama-3.2-xxxx"`.具体配置请参考Suggar的配置文件说明。
