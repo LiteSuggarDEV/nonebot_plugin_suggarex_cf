@@ -26,7 +26,7 @@ async def adapter(
         try:
             response = await session.post(
                 url=f"https://api.cloudflare.com/client/v4/accounts/{user_id}/ai/run/@{model}",
-                json=messages,
+                json={"messages": messages},
             )
             if response.status != 200:
                 logger.error(f"请求失败！user{user_id}/模型 {model}")
