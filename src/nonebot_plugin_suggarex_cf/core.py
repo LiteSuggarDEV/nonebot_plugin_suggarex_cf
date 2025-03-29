@@ -32,7 +32,7 @@ async def adapter(
                 logger.error(f"请求失败！user{user_id}/模型 {model}")
                 raise Exception(f"{response.status}\n{response.text}")
 
-            data = response.json()
+            data = await response.json()
             return data["result"]["response"]
         except Exception as e:
             logger.error(f"{e}")
