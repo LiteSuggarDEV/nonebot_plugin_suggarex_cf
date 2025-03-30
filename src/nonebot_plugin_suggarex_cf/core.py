@@ -7,6 +7,7 @@ from nonebot.adapters import Bot
 require("nonebot_plugin_suggarchat")
 
 from nonebot_plugin_suggarchat.API import Adapter, config_manager
+from nonebot_plugin_suggarchat.config import Config
 from nonebot_plugin_suggarchat.hook_manager import register_hook
 
 
@@ -16,7 +17,7 @@ async def adapter(
     key: str,
     messages: list,
     max_tokens: int,
-    config: dict,
+    config: Config,
     bot: Bot,
 ) -> str:
     user_id = config.cf_user_id
