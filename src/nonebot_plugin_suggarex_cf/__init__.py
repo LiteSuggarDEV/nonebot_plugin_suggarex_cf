@@ -1,5 +1,5 @@
-from nonebot.plugin import PluginMetadata
-from nonebot.plugin import require, PluginMetadata
+from nonebot.plugin import PluginMetadata, require
+
 
 __plugin_meta__ = PluginMetadata(
     name="SuggarChat CloudFlare协议扩展附属插件",
@@ -10,6 +10,8 @@ __plugin_meta__ = PluginMetadata(
     supported_adapters={"~onebot.v11"},
 )
 
-require("nonebot_plugin_suggarchat")
 
-from .core import *
+from . import core
+
+
+__all__ = ["core"]

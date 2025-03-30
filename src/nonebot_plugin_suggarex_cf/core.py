@@ -1,13 +1,16 @@
-from nonebot_plugin_suggarchat.API import Config, Adapter
-from nonebot import get_driver, logger
-from aiohttp import ClientSession
 import aiohttp
+from aiohttp import ClientSession
+from nonebot import get_driver, logger, require
+
+
+require("nonebot_plugin_suggarchat")
+
+from nonebot_plugin_suggarchat.API import Adapter, config_manager, register_hook
 
 
 async def adapter(
     base_url: str, model: str, key: str, messages: list, max_tokens: int, config: dict
 ) -> str:
-
     user_id = config["cf_user_id"]
     headers = {
         "Accept-Language": "zh-CN,zh;q=0.9",
@@ -40,14 +43,23 @@ async def adapter(
             raise e
 
 
-@get_driver().on_bot_connect
-async def init():
+driver = get_driver()
+
+
+@driver.on_startup
+async def hook():
     """
-    初始化
+    启动时注册
     """
-    config = Config()
+    register_hook(init_config)
+
+
+async def init_config():
+    """
+    注册配置项
+    """
     ada = Adapter()
 
-    config.reg_config("cf_user_id")
-    config.reg_model_config("cf_user_id")
+    config_manager.register_config("cf_user_id", default_value="")
+    config_manager.reg_model_config("cf_user_id", default_value="")
     ada.register_adapter(adapter, "cf")
