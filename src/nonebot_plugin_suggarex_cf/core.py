@@ -6,6 +6,9 @@ from nonebot import get_driver, logger, require
 require("nonebot_plugin_suggarchat")
 
 from nonebot_plugin_suggarchat.API import Adapter, config_manager, register_hook
+from nonebot_plugin_suggarchat.hook_manager import (
+    register_hook,
+)
 
 
 async def adapter(
