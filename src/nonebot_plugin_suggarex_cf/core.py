@@ -1,6 +1,7 @@
 import aiohttp
 from aiohttp import ClientSession
 from nonebot import get_driver, logger, require
+from nonebot.adapters import Bot
 
 from nonebot_plugin_suggarchat.API import Adapter, config_manager
 from nonebot_plugin_suggarchat.hook_manager import register_hook
@@ -10,7 +11,13 @@ require("nonebot_plugin_suggarchat")
 
 
 async def adapter(
-    base_url: str, model: str, key: str, messages: list, max_tokens: int, config: dict
+    base_url: str,
+    model: str,
+    key: str,
+    messages: list,
+    max_tokens: int,
+    config: dict,
+    bot: Bot,
 ) -> str:
     user_id = config["cf_user_id"]
     headers = {
