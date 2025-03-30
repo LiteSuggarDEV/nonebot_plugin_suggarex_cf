@@ -1,5 +1,5 @@
 from nonebot.plugin import PluginMetadata, require
-
+require("nonebot_plugin_suggarchat")
 
 __plugin_meta__ = PluginMetadata(
     name="SuggarChat CloudFlare协议扩展附属插件",
