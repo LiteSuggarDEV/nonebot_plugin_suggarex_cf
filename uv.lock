@@ -625,7 +625,7 @@ wheels = [
 
 [[package]]
 name = "nonebot-plugin-suggarchat"
-version = "2.0.1"
+version = "2.0.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "chardet" },
@@ -640,14 +640,14 @@ dependencies = [
     { name = "tomli-w" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/68/82/bfd709d47b018f29c2e20a2f9fc6c7f89848dde6ca841588ccf6e20d7bc1/nonebot_plugin_suggarchat-2.0.1.tar.gz", hash = "sha256:c3e2d06742bf57d552e0ea6e6abb5d76a5651cd030ba2477197520feffea931a", size = 40047 }
+sdist = { url = "https://files.pythonhosted.org/packages/bf/f4/5c37daa740053ce275e4ef7ac7553e586984b0af46ffe1cc74c39c98afd6/nonebot_plugin_suggarchat-2.0.2.tar.gz", hash = "sha256:d277c4dbd0a8597b2467041528770e5ed9f07ff57d89fa695e549caffeb1662a", size = 40113 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/8e/db/c316c7d0e561723b15aae75a576478d220faed8dba8a5335a08fefa9ed98/nonebot_plugin_suggarchat-2.0.1-py3-none-any.whl", hash = "sha256:361d26be2c9a8dd2216fa43eb8931bc7ff350776e0b2bc2ac2b84820478187d1", size = 42670 },
+    { url = "https://files.pythonhosted.org/packages/ec/ba/31f0a8212da640829364108f9ac503a71c2a10de37b20ca526422c64ac3f/nonebot_plugin_suggarchat-2.0.2-py3-none-any.whl", hash = "sha256:850966d1430b22459306f46e19108006d3f5484b6e9171d78c01a1d400f09538", size = 43000 },
 ]
 
 [[package]]
 name = "nonebot-plugin-suggarex-cf"
-version = "1.1.0"
+version = "1.1.1"
 source = { editable = "." }
 dependencies = [
     { name = "aiohttp" },
@@ -660,7 +660,7 @@ dependencies = [
 requires-dist = [
     { name = "aiohttp", specifier = ">=3.9.0" },
     { name = "nonebot-adapter-onebot", specifier = ">=2.0.0" },
-    { name = "nonebot-plugin-suggarchat", specifier = ">=2.0.0" },
+    { name = "nonebot-plugin-suggarchat", specifier = ">=2.0.2" },
     { name = "nonebot2", specifier = ">=2.2.0" },
 ]
 
