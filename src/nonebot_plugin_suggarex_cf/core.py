@@ -40,7 +40,7 @@ async def adapter(
             raise e
 
 
-@get_driver().on_startup
+@get_driver().on_bot_connect
 async def init():
     """
     初始化
