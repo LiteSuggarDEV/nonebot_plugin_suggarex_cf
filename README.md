@@ -3,7 +3,7 @@ CloudFlare Workers AI Proctol Adapter for SuggarChat
 
 ## 适用于SuggarChat插件的CloudFlare协议适配器实现
 
-[SuggarChat](https://github.com/JohnRichard4096/nonebot_plugin_suggarchat)
+[SuggarChat](https://github.com/LiteSuggarDEV/nonebot_plugin_suggarchat)
 
 ## 安装
 
