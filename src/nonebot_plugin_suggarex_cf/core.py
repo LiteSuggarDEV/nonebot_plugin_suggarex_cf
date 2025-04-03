@@ -28,7 +28,7 @@ async def adapter(
     }
     if model.startswith("@"):
         model = model.replace("@", "")
-    if key == "":
+    if not key:
         raise ValueError("请配置Cloudflare API Key")
 
     async with ClientSession(
@@ -69,6 +69,6 @@ async def init_config():
     """
     ada = Adapter()
 
-    config_manager.register_config("cf_user_id", default_value="")
-    config_manager.reg_model_config("cf_user_id", default_value="")
+    config_manager.register_config("cf_user_id")
+    config_manager.reg_model_config("cf_user_id")
     ada.register_adapter(adapter, "cf")
