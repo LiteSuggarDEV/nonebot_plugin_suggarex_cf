@@ -1,28 +1,11 @@
 import aiohttp
 from aiohttp import ClientSession
-from nonebot import get_driver, logger, require
 from nonebot.adapters import Bot
-
-
-DEBUG = False
-if DEBUG:
-    from ....nonebot_plugin_suggarchat.src.nonebot_plugin_suggarchat.API import (
-        Adapter,
-        config_manager,
-    )
-    from ....nonebot_plugin_suggarchat.src.nonebot_plugin_suggarchat.config import (
-        Config,
-    )
-    from ....nonebot_plugin_suggarchat.src.nonebot_plugin_suggarchat.hook_manager import (
-        register_hook,
-    )
-else:
-    require("nonebot_plugin_suggarchat")
-
-    from nonebot_plugin_suggarchat.API import Adapter, config_manager
-    from nonebot_plugin_suggarchat.config import Config
-    from nonebot_plugin_suggarchat.hook_manager import register_hook
-
+from nonebot import get_driver, logger, require
+require("nonebot_plugin_suggarchat")
+from nonebot_plugin_suggarchat.API import Adapter, config_manager
+from nonebot_plugin_suggarchat.hook_manager import register_hook
+from nonebot_plugin_suggarchat.config import Config
 
 async def adapter(
     base_url: str,
@@ -33,7 +16,14 @@ async def adapter(
     config: Config,
     bot: Bot,
 ) -> str:
-    user_id = config.cf_user_id
+    if config.preset == "__main__":
+        user_id = config.cf_user_id
+    else:
+        models = config_manager.get_models()
+        for m in models:
+            if m.name == config.preset:
+                break
+        user_id = m.cf_user_id
     headers = {
         "Accept-Language": "zh-CN,zh;q=0.9",
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
