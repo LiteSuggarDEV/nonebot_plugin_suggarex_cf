@@ -4,11 +4,24 @@ from nonebot import get_driver, logger, require
 from nonebot.adapters import Bot
 
 
-require("nonebot_plugin_suggarchat")
+DEBUG = True
+if DEBUG:
+    from ....nonebot_plugin_suggarchat.src.nonebot_plugin_suggarchat.API import (
+        Adapter,
+        config_manager,
+    )
+    from ....nonebot_plugin_suggarchat.src.nonebot_plugin_suggarchat.config import (
+        Config,
+    )
+    from ....nonebot_plugin_suggarchat.src.nonebot_plugin_suggarchat.hook_manager import (
+        register_hook,
+    )
+else:
+    require("nonebot_plugin_suggarchat")
 
-from nonebot_plugin_suggarchat.API import Adapter, config_manager
-from nonebot_plugin_suggarchat.config import Config
-from nonebot_plugin_suggarchat.hook_manager import register_hook
+    from nonebot_plugin_suggarchat.API import Adapter, config_manager
+    from nonebot_plugin_suggarchat.config import Config
+    from nonebot_plugin_suggarchat.hook_manager import register_hook
 
 
 async def adapter(
