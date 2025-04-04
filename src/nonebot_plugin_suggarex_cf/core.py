@@ -4,7 +4,7 @@ from nonebot import get_driver, logger, require
 from nonebot.adapters import Bot
 
 
-DEBUG = True
+DEBUG = False
 if DEBUG:
     from ....nonebot_plugin_suggarchat.src.nonebot_plugin_suggarchat.API import (
         Adapter,
