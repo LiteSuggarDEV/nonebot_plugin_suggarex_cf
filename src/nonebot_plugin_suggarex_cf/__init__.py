@@ -1,6 +1,9 @@
-from nonebot.plugin import PluginMetadata
+from nonebot.plugin import PluginMetadata, require
 
 from . import core
+
+
+require("nonebot_plugin_suggarchat")
 
 
 __all__ = ["core"]
@@ -13,5 +16,3 @@ __plugin_meta__ = PluginMetadata(
     homepage="https://github.com/LiteSuggarDEV/nonebot_plugin_suggaradapter_cf",
     supported_adapters={"~onebot.v11"},
 )
-
-

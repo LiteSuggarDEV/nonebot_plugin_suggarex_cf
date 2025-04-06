@@ -1,10 +1,8 @@
 import aiohttp
 from aiohttp import ClientSession
-from nonebot import get_driver, logger, require
+from nonebot import get_driver, logger
 from nonebot.adapters import Bot
 
-
-require("nonebot_plugin_suggarchat")
 from nonebot_plugin_suggarchat.API import Adapter, config_manager
 from nonebot_plugin_suggarchat.config import Config
 from nonebot_plugin_suggarchat.hook_manager import register_hook
