@@ -1,9 +1,11 @@
 from nonebot.plugin import PluginMetadata, require
 
+require("nonebot_plugin_suggarchat")
+
 from . import core
 
 
-require("nonebot_plugin_suggarchat")
+
 
 
 __all__ = ["core"]
