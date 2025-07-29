@@ -2,7 +2,6 @@ import aiohttp
 from aiohttp import ClientSession
 from nonebot import get_driver, logger
 from nonebot.adapters import Bot
-
 from nonebot_plugin_suggarchat.API import Adapter, config_manager
 from nonebot_plugin_suggarchat.config import Config
 from nonebot_plugin_suggarchat.hook_manager import register_hook
@@ -17,16 +16,16 @@ async def adapter(
     config: Config,
     bot: Bot,
 ) -> str:
-    if config.preset == "__main__":
-        user_id = config.cf_user_id
+    if config.preset == "default":
+        user_id = config.default_preset.extra.cf_user_id
     else:
-        models = config_manager.get_models()
+        models = await config_manager.get_models()
         for m in models:
             if m.name == config.preset:
-                user_id = m.cf_user_id
+                user_id = m.extra.cf_user_id
                 break
         else:
-            user_id = config.cf_user_id
+            user_id = config.default_preset.extra.cf_user_id
             logger.warning(f"模型 {config.preset} 未找到，使用默认配置 {user_id}")
     headers = {
         "Accept-Language": "zh-CN,zh;q=0.9",
@@ -75,7 +74,5 @@ async def init_config():
     注册配置项
     """
     ada = Adapter()
-
-    config_manager.register_config("cf_user_id")
     config_manager.reg_model_config("cf_user_id")
     ada.register_adapter(adapter, "cf")
